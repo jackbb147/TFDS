@@ -5,6 +5,10 @@ class Schema{
         this.#statement = str;
     }
 
+    getStatement(){
+        return this.#statement;
+    }
+
     /**
      * returns true if p.statement == q.statement
      * @constructor
@@ -23,8 +27,17 @@ class Conditional extends Schema{
 
     constructor(ant, cons, str=""){
         super(str);
-        this.#antecedent = ans;
+        console.assert(ant instanceof Schema && cons instanceof Schema, "Schema line 26");
+        this.#antecedent = ant;
         this.#consequence = cons;
+    }
+
+    getAntecedent(){
+        return this.#antecedent
+    }
+
+    getConsequence(){
+        return this.#consequence;
     }
 }
 
